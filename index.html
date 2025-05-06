@@ -2,6 +2,44 @@
 <html>
 <head>
 <title>Puram</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	<script>
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"
+    </script>
+
+    <script type="text/javascript">
+        function submitForm()
+        {
+            var name = $('input[name=name]').val();
+            var email = $('input[name=email]').val();
+            var message = $('input[name=message]').val();
+            //var formData = {name:name, email:email, message:message};
+
+            // Data structure expected by API Spreadsheets
+            var data = {
+              "data": {
+                "name": name,
+                "email": email,
+                "message": message
+              }
+            };
+            $.ajax({
+				url:"https://api.apispreadsheets.com/data/c3eTFXw0HuBTTkuc/",
+				type:"POST",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+				success: function(){
+					alert("Form Data Submitted :)")
+				},
+				error: function(){
+					alert("There was an error :(")
+				}
+			});
+        }
+    </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
@@ -66,21 +104,26 @@ body, html {
 
     <div class="contact">
         <div class="w3-row-padding">
-            <div class="w3-col m6">
+            <div class="w4-col m6">
             <p>We are based in <b>New Haven, CT</b></p>
-            <p>Email us at <a href="mailto:hello@puramconsulting.com">hello@puramconsulting.com</a></p>
-            </div>
+            <p>Email us at <a href="mailto:rishabh@puramconsulting.com">hello@puramconsulting.com</a></p>
+            <!--- </div>
             <div class="w3-col m5">
-            <form action="/action_page.php" target="_blank">
-              <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-              <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-              <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+            %<form action="/action_page.php" target="_blank">
+                <form method="post" id="myForm" class="form">
+              <p><input class="name" type="text" placeholder="Name" required name="name"></p>
+              <p><input class="email" type="text" placeholder="Email" required name="email"></p>
+              <p><input class="message" type="text" placeholder="Message" required name="message"></p>
               <p>
-                <button class="w3-button w3-black" type="submit">
-                  <i class=""></i> SUBMIT
+               %<button class="w3-button w3-black" type="submit">
+                  <i class="submit"></i> SUBMIT
                 </button>
+                  <input type="button" onclick="submitForm();" name="save_message" value="Save">
               </p>
-            </form>
+            </form> --->
+
+                <!-- Embed the Microsoft Form here -->
+                <!--#<iframe width="640px" height="480px" src="https://forms.office.com/r/XJiY7emWUP?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>-->
         </div>
         </div>
     </div>
