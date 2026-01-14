@@ -66,6 +66,26 @@ body, html {
 .w3-bar .w3-button {
   padding: 16px;
 }
+/* Fullscreen stacked sections */
+.fullpage-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.fullpage-section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.brochure-img {
+  width: 100%;
+  display: block;
+  margin: 20px 0;
+}
 </style>
 </head>
 <body>
@@ -78,10 +98,13 @@ body, html {
 </div>
 
 
-<div style="width: 100%; max-width: 900px; margin: 0 auto;">
-  <img src="Puram_Brochure_Page_1.jpg" style="width: 100%; display: block; margin: 20px 0;" alt="Puram Brochure Page 1">
-  <img src="Puram_Brochure_Page_2.jpg" style="width: 100%; display: block; margin: 20px 0;" alt="Puram Brochure Page 2">
-</div>
+<section class="fullpage-section" id="page1">
+  <img src="Puram_Brochure_Page_1.jpg" alt="Puram Brochure Page 1">
+</section>
+
+<section class="fullpage-section" id="page2">
+  <img src="Puram_Brochure_Page_2.jpg" alt="Puram Brochure Page 2">
+</section>
 
 
 <!-- Promo Section - "We know design" -->
